@@ -1,4 +1,3 @@
-import { Product } from '../shared/Product';
 import { Component } from '@angular/core';
 
 @Component({

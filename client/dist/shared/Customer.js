@@ -5,4 +5,4 @@ var Customer = (function () {
     return Customer;
 }());
 exports.Customer = Customer;
-//# sourceMappingURL=Product.js.map
+//# sourceMappingURL=Customer.js.map
