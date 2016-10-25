@@ -2,15 +2,17 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var vehicleSchema = new Schema({
-    _id: number,
-    model: string,
-    year: number,
-    image_path: string,
-    type: string,
+    _id: Number,
+    model: String,
+    year: Number,
+    image_path: String,
+    type: String,
     Rent: {
-        price_per_day: number, 
-        isRented: boolean
+        price_per_day: Number, 
+        isRented: Boolean
     }
+}, {
+    versionKey: false
 });
 
 var Vehicle = mongoose.model('Vehicle', vehicleSchema);
