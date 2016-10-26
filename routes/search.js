@@ -23,4 +23,22 @@ router.get('/vehicles', function (req, res, next) {
     }
 });
 
+router.get('/customer/:id/reservations', function (req, res, next) {
+    let queryReserv = req.query.queryReserv;
+
+    if (model != null || year != null || type != null) {
+        Vehicle.find({  }).exec(function (err, vehicle) {
+            if (err) throw err;
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({data: vehicle}));
+        });
+    } else {
+        Vehicle.find({}).exec(function (err, vehicle) {
+            if (err) throw err;
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({data: vehicle}));
+        });
+    }
+});
+
 module.exports = router;
