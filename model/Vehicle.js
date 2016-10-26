@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var vehicleSchema = new Schema({
     _id: Number,
-    model: String,
+    model: String, 
     year: Number,
     image_path: String,
     type: String,

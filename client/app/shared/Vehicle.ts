@@ -6,5 +6,5 @@ export class Vehicle {
     public type: string;
     public Rent: {
         price_per_day: number, isRented: boolean
-    }
+    } 
 }

@@ -1,3 +1,5 @@
+import './rxjs-extensions';
+import { VehicleService } from './../shared/vehicle.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
