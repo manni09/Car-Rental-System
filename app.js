@@ -8,8 +8,8 @@ var mongoose = require('mongoose');
 //var mongo = require('mongodb');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var searches = require('./routes/search');
+var customer = require('./routes/customerBook');
 
 var app = express(); 
 
@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'client/asset')));
 app.use(express.static(path.join(__dirname, 'client')));
 
 
+app.use('/customer', customer);
 app.use('/api/search', searches);
 app.use('/', routes);
 
@@ -47,7 +48,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('index', {
       message: err.message,
       error: err
     });

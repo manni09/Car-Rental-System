@@ -15,3 +15,4 @@ export class Customer {
     public reservations: Reservation[];
     public description?: string;
 }
+
