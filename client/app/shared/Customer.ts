@@ -12,6 +12,6 @@ export class Customer {
     }
     public phone: string;
     public email: string;
-    public description?: string;
     public reservations: Reservation[];
+    public description?: string;
 }

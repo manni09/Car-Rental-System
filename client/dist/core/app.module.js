@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var searchReservation_component_1 = require('./../search/searchReservation.component');
 require('./rxjs-extensions');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
@@ -16,7 +17,7 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var app_component_1 = require('../core/app.component');
 var dashboard_component_1 = require('./../dashboard/dashboard.component');
-var search_component_1 = require('./../search/search.component');
+var searchVehicle_component_1 = require('./../search/searchVehicle.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,10 +33,14 @@ var AppModule = (function () {
                     {
                         path: 'dashboard',
                         component: dashboard_component_1.DashboardComponent
+                    },
+                    {
+                        path: 'search/customer/reservation',
+                        component: searchReservation_component_1.SearchReservationComponent
                     }
                 ])
             ],
-            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, search_component_1.SearchComponent],
+            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, searchVehicle_component_1.SearchVehicleComponent, searchReservation_component_1.SearchReservationComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
