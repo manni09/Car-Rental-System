@@ -16,6 +16,7 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var app_component_1 = require('../core/app.component');
 var dashboard_component_1 = require('./../dashboard/dashboard.component');
+var search_component_1 = require('./../search/search.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,7 +35,7 @@ var AppModule = (function () {
                     }
                 ])
             ],
-            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, search_component_1.SearchComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

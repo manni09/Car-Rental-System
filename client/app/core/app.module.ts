@@ -9,6 +9,7 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from '../core/app.component';
 import { DashboardComponent } from './../dashboard/dashboard.component';
+import { SearchComponent } from './../search/search.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule,
@@ -24,7 +25,7 @@ import { DashboardComponent } from './../dashboard/dashboard.component';
       }
     ])
   ],
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, SearchComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

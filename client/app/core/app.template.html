@@ -1,34 +1,52 @@
-<div class="container">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false">
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-				<a class="navbar-brand" href="#">Brand</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li routerLinkActive="active"><a routerLink="/dashboard"> <i class="fa fa-home"></i> Home</a></li>
-					<li><a href="#">Link</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
+			<a class="navbar-brand" href="#">Fast Car Rental</a>
 		</div>
-		<!-- /.container-fluid -->
-	</nav>
-<br />
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li routerLinkActive="active">
+					<a routerLink="/dashboard"> <i class="fa fa-home"></i> Home</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-car" aria-hidden="true"></i> Vehicle <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li routerLinkActive="active"><a routerLink="/vehicle"> Register Vehicle</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Customer <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li routerLinkActive="active"><a routerLink="/customer"> Customer</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<div style="background-image: url('asset/images/background.jpg'); margin-top: -20px; height:22em; background-size: cover; background-repeat: no-repeat; background-position: center center;">
+    <div class="col-xs-6 col-sm-6 col-sm-push-1" style="color: #fff;">
+      <br/> <br />
+      <h2> Fast Online Car Rental System</h2>
+      <h4> </h4>
+    </div>
+</div>
+<div class="container">
 	<div>
 		<router-outlet></router-outlet>
 	</div>
-
 </div>
 <hr />
-<h5 class="text-center"> &copy; Copyright 2016, BTA Car Rental System </h5>
+<h5 class="text-center"> &copy; Copyright 2016, Fast Car Rental System </h5>
