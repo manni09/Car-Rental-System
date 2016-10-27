@@ -1,4 +1,5 @@
-import { SearchReservationComponent } from './../search/searchReservation.component';
+import { CustomerComponent } from './../customer/customer.component';
+import { SearchCustomerComponent } from './../search/searchCustomer.component';
 import './rxjs-extensions';
 import { VehicleService } from './../shared/vehicle.service';
 import { NgModule } from '@angular/core';
@@ -26,11 +27,16 @@ import { SearchVehicleComponent } from './../search/searchVehicle.component';
       },
       {
         path: 'search/customer/reservation',
-        component: SearchReservationComponent
-      }
+        component: SearchCustomerComponent
+      },
+      {
+        path: 'customer/new',
+        component: CustomerComponent
+      },
+
     ])
   ],
-  declarations: [AppComponent, DashboardComponent, SearchVehicleComponent, SearchReservationComponent],
+  declarations: [AppComponent, DashboardComponent, SearchVehicleComponent, SearchCustomerComponent, CustomerComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

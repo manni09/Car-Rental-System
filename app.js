@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var searches = require('./routes/search');
-var customer = require('./routes/customerBook');
+var customer = require('./routes/customer');
 
 var app = express(); 
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'client/asset')));
 app.use(express.static(path.join(__dirname, 'client')));
 
 
-app.use('/customer', customer);
+app.use('/api/customer', customer);
 app.use('/api/search', searches);
 app.use('/', routes);
 

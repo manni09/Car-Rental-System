@@ -12,12 +12,12 @@ var customer_service_1 = require('./../shared/customer.service');
 var core_1 = require('@angular/core');
 var Subject_1 = require('rxjs/Subject');
 var Observable_1 = require('rxjs/Observable');
-var SearchReservationComponent = (function () {
-    function SearchReservationComponent(customerService) {
+var SearchCustomerComponent = (function () {
+    function SearchCustomerComponent(customerService) {
         this.customerService = customerService;
         this.searchCar = new Subject_1.Subject();
     }
-    SearchReservationComponent.prototype.ngOnInit = function () {
+    SearchCustomerComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.customers = this.searchCar
             .debounceTime(300)
@@ -28,18 +28,18 @@ var SearchReservationComponent = (function () {
             return Observable_1.Observable.of([]);
         });
     };
-    SearchReservationComponent.prototype.onSearch = function (queryId) {
+    SearchCustomerComponent.prototype.onSearch = function (queryId) {
         this.searchCar.next(queryId);
     };
-    SearchReservationComponent = __decorate([
+    SearchCustomerComponent = __decorate([
         core_1.Component({
             selector: 'my-search-reservation',
             templateUrl: '/app/search/searchCustomer.template.html',
             providers: [customer_service_1.CustomerService]
         }), 
         __metadata('design:paramtypes', [customer_service_1.CustomerService])
-    ], SearchReservationComponent);
-    return SearchReservationComponent;
+    ], SearchCustomerComponent);
+    return SearchCustomerComponent;
 }());
-exports.SearchReservationComponent = SearchReservationComponent;
+exports.SearchCustomerComponent = SearchCustomerComponent;
 //# sourceMappingURL=searchCustomer.component.js.map

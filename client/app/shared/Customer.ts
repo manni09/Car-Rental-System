@@ -1,7 +1,7 @@
 import { Reservation } from './Reservation';
 
 export class Customer {
-    public _id: string;
+    public _id: number;
     public first_name: string;
     public last_name: string;
     public address: {
@@ -12,7 +12,7 @@ export class Customer {
     }
     public phone: string;
     public email: string;
+    public description: string;
     public reservations: Reservation[];
-    public description?: string;
 }
 

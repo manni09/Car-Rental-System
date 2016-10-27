@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var searchReservation_component_1 = require('./../search/searchReservation.component');
+var customer_component_1 = require('./../customer/customer.component');
+var searchCustomer_component_1 = require('./../search/searchCustomer.component');
 require('./rxjs-extensions');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
@@ -36,11 +37,15 @@ var AppModule = (function () {
                     },
                     {
                         path: 'search/customer/reservation',
-                        component: searchReservation_component_1.SearchReservationComponent
-                    }
+                        component: searchCustomer_component_1.SearchCustomerComponent
+                    },
+                    {
+                        path: 'customer/new',
+                        component: customer_component_1.CustomerComponent
+                    },
                 ])
             ],
-            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, searchVehicle_component_1.SearchVehicleComponent, searchReservation_component_1.SearchReservationComponent],
+            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, searchVehicle_component_1.SearchVehicleComponent, searchCustomer_component_1.SearchCustomerComponent, customer_component_1.CustomerComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

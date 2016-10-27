@@ -14,16 +14,24 @@ require('rxjs/add/operator/toPromise');
 var CustomerService = (function () {
     function CustomerService(http) {
         this.http = http;
-        this.vehicleUrl = 'api/search/customer';
+        this.customerUrl = 'api/customer';
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     CustomerService.prototype.getCustomer = function () {
-        return this.http.get(this.vehicleUrl).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+        return this.http.get(this.customerUrl).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
     CustomerService.prototype.getCustomerById = function (queryId) {
-        return this.http.get(this.vehicleUrl + '?id=' + queryId).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+        return this.http.get(this.customerUrl + '?id=' + queryId).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
     CustomerService.prototype.getCustomerByReservation = function (queryId, queryReserv) {
-        return this.http.get(this.vehicleUrl + '?id=' + queryId + '&queryReserv=' + queryReserv).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+        return this.http.get(this.customerUrl + '?id=' + queryId + '&queryReserv=' + queryReserv).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+    };
+    CustomerService.prototype.create = function (customer) {
+        return this.http
+            .post(this.customerUrl + '/add', JSON.stringify({ customer: customer }), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
     };
     CustomerService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
     providers: [CustomerService]
 })
 
-export class SearchReservationComponent implements OnInit{
+export class SearchCustomerComponent implements OnInit{
     customers: Observable<Customer[]>;
     private searchCar = new Subject<string>();
 
