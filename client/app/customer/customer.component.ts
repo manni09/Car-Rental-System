@@ -23,7 +23,7 @@ export class CustomerComponent implements OnInit {
         "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY",
         "OH", "OK", "OR", "PA", "PR", "PW", "RI", "SC", "SD", "TN",
         "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY"];
-    constructor(private customerService: CustomerService) {
+    constructor(private customerService: CustomerService, private router: Router) {
 
     }
     ngOnInit(): void {
@@ -36,5 +36,6 @@ export class CustomerComponent implements OnInit {
 
     NewCustomer(): void {
         this.customerService.create(this.customer).then(x => this.customer = x);
+        this.router.navigate(['/']);
     }
 }

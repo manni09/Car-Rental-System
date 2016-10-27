@@ -15,21 +15,21 @@ var Observable_1 = require('rxjs/Observable');
 var SearchCustomerComponent = (function () {
     function SearchCustomerComponent(customerService) {
         this.customerService = customerService;
-        this.searchCar = new Subject_1.Subject();
+        this.searchCustomer = new Subject_1.Subject();
     }
     SearchCustomerComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.customers = this.searchCar
+        this.customers = this.searchCustomer
             .debounceTime(300)
             .distinctUntilChanged()
-            .switchMap(function (query) { return query ? _this.customerService.getCustomerById(query) : _this.customerService.getCustomer(); })
+            .switchMap(function (query) { return query ? _this.customerService.getCustomerByReservationDate(query) : Observable_1.Observable.of([]); })
             .catch(function (error) {
             console.log(error);
             return Observable_1.Observable.of([]);
         });
     };
     SearchCustomerComponent.prototype.onSearch = function (queryId) {
-        this.searchCar.next(queryId);
+        this.searchCustomer.next(queryId);
     };
     SearchCustomerComponent = __decorate([
         core_1.Component({

@@ -21,10 +21,10 @@ var CustomerService = (function () {
         return this.http.get(this.customerUrl).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
     CustomerService.prototype.getCustomerById = function (queryId) {
-        return this.http.get(this.customerUrl + '?id=' + queryId).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+        return this.http.get(this.customerUrl + '/get?id=' + queryId).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
-    CustomerService.prototype.getCustomerByReservation = function (queryId, queryReserv) {
-        return this.http.get(this.customerUrl + '?id=' + queryId + '&queryReserv=' + queryReserv).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+    CustomerService.prototype.getCustomerByReservationDate = function (reservationDate) {
+        return this.http.get(this.customerUrl + '/get/reservation?pick_date=' + reservationDate).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
     CustomerService.prototype.create = function (customer) {
         return this.http

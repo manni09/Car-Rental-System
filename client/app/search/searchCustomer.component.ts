@@ -15,16 +15,16 @@ import { Observable } from 'rxjs/Observable';
 
 export class SearchCustomerComponent implements OnInit{
     customers: Observable<Customer[]>;
-    private searchCar = new Subject<string>();
+    private searchCustomer = new Subject<string>();
 
     constructor(private customerService: CustomerService) { 
     }
 
     ngOnInit(): void {
-        this.customers = this.searchCar
+        this.customers = this.searchCustomer
             .debounceTime(300)
             .distinctUntilChanged()
-            .switchMap(query => query ? this.customerService.getCustomerById(query) : this.customerService.getCustomer())
+            .switchMap(query => query ? this.customerService.getCustomerByReservationDate(query) : Observable.of<Customer[]>([]))
             .catch(error => {
                 console.log(error);
                 return Observable.of<Customer[]>([]);
@@ -32,6 +32,6 @@ export class SearchCustomerComponent implements OnInit{
     }
 
     onSearch(queryId: string): void {
-        this.searchCar.next(queryId);
+        this.searchCustomer.next(queryId);
     }
 }

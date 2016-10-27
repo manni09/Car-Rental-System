@@ -17,18 +17,18 @@ export class CustomerService {
     }
 
     getCustomerById(queryId: string): Promise<Customer[]> {
-        return this.http.get(this.customerUrl + '?id=' + queryId).toPromise().then(res => res.json().data as Customer[]).catch(this.handleError);
+        return this.http.get(this.customerUrl + '/get?id=' + queryId).toPromise().then(res => res.json().data as Customer[]).catch(this.handleError);
     }
 
-    getCustomerByReservation(queryId: string, queryReserv: string): Promise<Customer[]> {
-        return this.http.get(this.customerUrl + '?id=' + queryId + '&queryReserv=' + queryReserv).toPromise().then(res => res.json().data as Customer[]).catch(this.handleError);
+    getCustomerByReservationDate(reservationDate: string): Promise<Customer[]> {
+        return this.http.get(this.customerUrl + '/get/reservation?pick_date=' + reservationDate).toPromise().then(res => res.json().data as Customer[]).catch(this.handleError);
     }
 
     create(customer: Customer): Promise<Customer> {
         return this.http
             .post(this.customerUrl + '/add', JSON.stringify({customer: customer}), { headers: this.headers })
             .toPromise()
-            .then(res => res.json().data)
+            .then(res => res.json().data as Customer)
             .catch(this.handleError);
     }
     private handleError(error: any): Promise<any> {

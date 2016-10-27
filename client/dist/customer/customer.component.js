@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var customer_service_1 = require('./../shared/customer.service');
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var CustomerComponent = (function () {
-    function CustomerComponent(customerService) {
+    function CustomerComponent(customerService, router) {
         this.customerService = customerService;
+        this.router = router;
         this.STATES = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE",
             "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS",
             "KY", "LA", "MA", "MD", "ME", "MH", "MI", "MN", "MO",
@@ -30,6 +32,7 @@ var CustomerComponent = (function () {
     CustomerComponent.prototype.NewCustomer = function () {
         var _this = this;
         this.customerService.create(this.customer).then(function (x) { return _this.customer = x; });
+        this.router.navigate(['/']);
     };
     CustomerComponent = __decorate([
         core_1.Component({
@@ -39,7 +42,7 @@ var CustomerComponent = (function () {
             //styleUrls: ['/app/customer/customer.component.css'],
             providers: [customer_service_1.CustomerService]
         }), 
-        __metadata('design:paramtypes', [customer_service_1.CustomerService])
+        __metadata('design:paramtypes', [customer_service_1.CustomerService, router_1.Router])
     ], CustomerComponent);
     return CustomerComponent;
 }());

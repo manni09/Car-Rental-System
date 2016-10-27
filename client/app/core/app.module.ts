@@ -21,7 +21,7 @@ import { SearchVehicleComponent } from './../search/searchVehicle.component';
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       },
       {

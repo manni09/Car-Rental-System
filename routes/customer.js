@@ -4,18 +4,22 @@ var Customer = require('../model/Customer');
 var router = express.Router();
 
 router.post('/add', function (req, res, next) {
-    let customer = req.body.customer || [];
+    console.log(req.body.customer);
+    let customer = new Customer(req.body.customer);
+    customer._id = null;
     if (customer != []) {
         customer.save(function (err) {
-            if (err) throw err;
+            if (err) {
+                throw err;
+            }
             res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify({ data: customer }));
+            res.send(JSON.stringify({ data: req.body.customer }));
         });
     }
 });
 
 router.put('/edit', function (req, res, next) {
-    let customer = req.body.customer || [];
+    let customer = new Customer(req.body.customer);
     if (customer != []) {
         customer.update({_id: customer._id}, {}, (function (err) {
             if (err) throw err;
@@ -27,7 +31,7 @@ router.put('/edit', function (req, res, next) {
 
 
 router.delete('/delete', function (req, res, next) {
-    let customer = req.body.customer || [];
+    let customer = new Customer(req.body.customer);
     Customer.findByIdAndRemove(customer._id, function (err) {
         if (err) throw err;
         res.setHeader('Content-Type', 'application/json');
@@ -35,12 +39,21 @@ router.delete('/delete', function (req, res, next) {
     });
 });
 
-router.post('/get', function (req, res, next) {
-    let customer = req.body.customer || [];
+router.get('/get', function (req, res, next) {
+    let customer = new Customer(req.body.customer);
     Customer.find({}).exec(function (err, customer) {
-        if (err) throw err;
+        if (err) throw err; 
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ data: customer }));
+    });
+});
+
+router.get('/get/reservation', function (req, res, next) {
+    let query = req.body.pick_date;
+    Customer.find({reservations: { $elemMatch: {pick_date: query}}}).exec(function (err, customers) {
+        if (err) throw err;
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ data: customers }));
     });
 });
 
