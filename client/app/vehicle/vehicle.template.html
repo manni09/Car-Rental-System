@@ -1,0 +1,72 @@
+<div class="well">
+	<form class="form-horizontal" (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
+		<fieldset>
+			<legend>Register Vehicle</legend>
+			<div class="form-group">
+				<label for="inputId" class="col-sm-1 control-label">Vehicle ID:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputId" placeholder="Vehicle ID" required [(ngModel)]="vehicle._id" name="vehicleID"
+						#vehid="ngModel">
+					<div [hidden]="vehid.valid || vehid.pristine" class="alert alert-danger">
+						Vehicle ID is required
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputModel" class="col-sm-1 control-label">Model</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputModel" placeholder="Vehicle Model" required [(ngModel)]="vehicle.model"
+						name="vehicleModel" #model="ngModel">
+					<div [hidden]="model.valid || model.pristine" class="alert alert-danger">
+						Vehicle Model is required
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="inputYear" class="col-sm-1 control-label">Year</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputYear" placeholder="Make Year" required [(ngModel)]="vehicle.year" name="vehicleYear"
+						#year="ngModel">
+					<div [hidden]="year.valid || year.pristine" class="alert alert-danger">
+						Make Year is required
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputType" class="col-sm-1 control-label">Type</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputType" placeholder="Vehicle Type" required [(ngModel)]="vehicle.type" name="vehicleType"
+						#type="ngModel">
+					<div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+						Vehicle Type is required
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPrice" class="col-sm-1 control-label">Price:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="inputPrice" placeholder="Price/day" required [(ngModel)]="vehicle.Rent.price_per_day"
+						name="price" #price="ngModel">
+					<div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+						Price per day is required
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-1 control-label">Photo:</label>
+				<div class="col-sm-1">
+					<label class="btn btn-default btn-file">
+    Browse <input type="file" style="display: none;" (change)="browseImage($event)">
+		</label> <label class="control-label">{{path}}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-5 col-sm-offset-1">
+					<button type="submit" class="btn btn-primary" value="Register" [disabled]="!vehicleForm.form.valid">Register</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
