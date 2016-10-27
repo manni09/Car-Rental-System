@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var vehicle_component_1 = require('./../vehicle/vehicle.component');
 var vehicle_module_1 = require('./../vehicle/vehicle.module');
+var customer_component_1 = require('./../customer/customer.component');
+var searchCustomer_component_1 = require('./../search/searchCustomer.component');
+require('./rxjs-extensions');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
@@ -17,6 +20,7 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var app_component_1 = require('../core/app.component');
 var dashboard_component_1 = require('./../dashboard/dashboard.component');
+var searchVehicle_component_1 = require('./../search/searchVehicle.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,10 +40,18 @@ var AppModule = (function () {
                     {
                         path: 'vehicle',
                         component: vehicle_component_1.VehicleComponent
-                    }
+                    },
+                    {
+                        path: 'search/customer/reservation',
+                        component: searchCustomer_component_1.SearchCustomerComponent
+                    },
+                    {
+                        path: 'customer/new',
+                        component: customer_component_1.CustomerComponent
+                    },
                 ])
             ],
-            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+            declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, searchVehicle_component_1.SearchVehicleComponent, searchCustomer_component_1.SearchCustomerComponent, customer_component_1.CustomerComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

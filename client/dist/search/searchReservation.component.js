@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var Subject_1 = require('rxjs/Subject');
+var SearchReservationComponent = (function () {
+    function SearchReservationComponent() {
+        this.searchCar = new Subject_1.Subject();
     }
-    AppComponent = __decorate([
+    SearchReservationComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: '/app/core/app.template.html'
+            selector: 'my-search-reservation',
+            templateUrl: '/app/search/searchReservation.template.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SearchReservationComponent);
+    return SearchReservationComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SearchReservationComponent = SearchReservationComponent;
+//# sourceMappingURL=searchReservation.component.js.map

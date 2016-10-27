@@ -1,0 +1,83 @@
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i> Search</span>
+			<input type="text" class="form-control input-lg" placeholder="Search Car ..." aria-describedby="basic-addon1" #queryStr>
+			<span class="input-group-addon" id="basic-addon1"> By</span>
+			<select class="form-control input-lg" #queryType>
+                <option value="model"> Model</option>
+                <option value="year"> Year</option>
+                <option value="type"> Type</option>
+            </select>
+			<span class="input-group-btn">
+                <button class="btn btn-primary btn-lg" type="button" (click)="onSearch(queryStr.value, queryType.value)">Go!</button>
+            </span>
+		</div>
+	</div>
+</div>
+<br />
+<div class="row">
+	<div class="col-sm-3">
+		<h4> Quick Search</h4>
+		<hr />
+		<div class="list-group">
+			<button type="button" class="list-group-item" (click)="onSearchByType(1)"><i class="fa fa-car" aria-hidden="true"></i> Subcompact/Compact</button>
+			<button type="button" class="list-group-item" (click)="onSearchByType(2)"><i class="fa fa-car" aria-hidden="true"></i> Mid-size/Full-size</button>
+			<button type="button" class="list-group-item" (click)="onSearchByType(3)"><i class="fa fa-car" aria-hidden="true"></i> Station Wagon </button>
+			<button type="button" class="list-group-item" (click)="onSearchByType(4)"><i class="fa fa-car" aria-hidden="true"></i> SUV</button>
+            <button type="button" class="list-group-item" (click)="onSearchByType(5)"><i class="fa fa-car" aria-hidden="true"></i> Pick-up Truck </button>
+            <button type="button" class="list-group-item" (click)="onSearchByType(6)"><i class="fa fa-car" aria-hidden="true"></i> Van</button>
+		</div>
+	</div>
+	<div class="col-sm-9">
+		<h4> Available Cars</h4>
+		<hr />
+		<div *ngFor="let vehicle of vehicles | async">
+			<div class="row" style="background-color: #fff; border: 1px solid #efefef; ">
+				<div class="col-sm-3" style="border-right: 1px solid #efefef;">
+					<h3>{{vehicle.model}}</h3>
+					<div class="row">
+						<div class="col-xs-12 col-md-10">
+							<a href="#" class="thumbnail">
+								<img src="/asset/images/placeholder.svg" alt="...">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6" style="border-right: 1px solid #efefef;">
+					<div class="row">
+						<div class="col-sm-12">
+							<br />
+							<h4><i class="fa fa-car" aria-hidden="true"></i> {{vehicle.type}} - {{vehicle.year}} </h4>
+							<hr />
+							<h4>5 Seats | 2 Large bags 1 Small bag</h4>
+							<p><span class="glyphicon glyphicon-ok-sign"> </span> Air Conditioning &nbsp; &nbsp; <span class="glyphicon glyphicon-ok-sign"></span>								Automatic Transmission </p>
+						</div>
+					</div>
+					<div class="row" style="border-top: 1px solid #efefef;">
+						<div class="col-sm-12">
+							<h4 class="text-success">We give you the following for FREE: </h4>
+							<h4><span class="glyphicon glyphicon-ok-sign"></span> Cancellation &nbsp; &nbsp; &nbsp;
+								<span class="glyphicon glyphicon-ok-sign"></span> Amendments </h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="row">
+						<div class="col-sm-12">
+                            <br />
+							<h4 class="text-right"> Price/Day: US ${{vehicle.Rent.price_per_day}}</h4>
+							<hr />
+							<h4 class="text-right"> Total Price: US ${{vehicle.Rent.price_per_day * 3}} </h4>
+							<p class="text-danger text-right"> <i class="fa fa-info-circle" aria-hidden="true"></i> Minimum 3 days rent </p>
+                            <br />
+							<button type="button" class="btn btn-large btn-block btn-success">Select Car</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+		</div>
+	</div>
+</div>

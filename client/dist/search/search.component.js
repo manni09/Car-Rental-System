@@ -12,13 +12,13 @@ var vehicle_service_1 = require('./../shared/vehicle.service');
 var core_1 = require('@angular/core');
 var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var Observable_1 = require('rxjs/Observable');
-var DashboardComponent = (function () {
-    function DashboardComponent(vehicleService) {
+var SearchComponent = (function () {
+    function SearchComponent(vehicleService) {
         this.vehicleService = vehicleService;
         this.searchCar = new BehaviorSubject_1.BehaviorSubject('');
         this.queryType = '';
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.vehicles = this.searchCar
             .debounceTime(300)
@@ -29,21 +29,21 @@ var DashboardComponent = (function () {
             return Observable_1.Observable.of([]);
         });
     };
-    DashboardComponent.prototype.onSearch = function (queryStr, queryType) {
+    SearchComponent.prototype.onSearch = function (queryStr, queryType) {
         this.queryType = queryStr ? queryType : "";
         this.searchCar.next(queryStr);
     };
-    DashboardComponent.prototype.onSearchByType = function (type) {
+    SearchComponent.prototype.onSearchByType = function (type) {
     };
-    DashboardComponent = __decorate([
+    SearchComponent = __decorate([
         core_1.Component({
-            selector: 'my-dashboard',
-            templateUrl: '/app/dashboard/dashboard.template.html',
+            selector: 'my-search',
+            templateUrl: '/app/search/search.template.html',
             providers: [vehicle_service_1.VehicleService]
         }), 
         __metadata('design:paramtypes', [vehicle_service_1.VehicleService])
-    ], DashboardComponent);
-    return DashboardComponent;
+    ], SearchComponent);
+    return SearchComponent;
 }());
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+exports.SearchComponent = SearchComponent;
+//# sourceMappingURL=search.component.js.map

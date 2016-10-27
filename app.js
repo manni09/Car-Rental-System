@@ -6,16 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 //var mongo = require('mongodb');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var vehicles = require('./routes/vehicles');
 var app = express();
+var routes = require('./routes/index');
+var vehicles = require('./routes/vehicles');
+var searches = require('./routes/search');
+var customer = require('./routes/customer');
 
 mongoose.connect('mongodb://localhost:27017/carRentalDB');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -25,14 +26,24 @@ app.use(logger('dev'));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
 //app.use(bodyParser.urlencoded({ extended: false }));
+
+app.set('view engine', 'ejs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'client/asset')));
 app.use(express.static(path.join(__dirname, 'client/asset')));
 app.use(express.static(path.join(__dirname, 'client')));
 
-app.use('/', routes);
-app.use('/users', users);
+
 app.use('/api/vehicle', vehicles);
+app.use('/api/customer', customer);
+app.use('/api/search', searches);
+app.use('/', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

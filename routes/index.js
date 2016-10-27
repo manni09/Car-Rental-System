@@ -3,6 +3,7 @@ var router = express.Router();
 var Vehicle = require('../model/Vehicle');
 
 /* GET home page. */
+<<<<<<< HEAD
 router.get('/', function (req, res, next) {
   // var vehicle = new Vehicle({
   //   _id: 1234,
@@ -22,6 +23,10 @@ router.get('/', function (req, res, next) {
   //    res.render('index');
   //  });
   res.render('index');
+=======
+router.get('/*', function (req, res, next) {
+  res.render('indexds');
+>>>>>>> f7e3fe6f41b2fcdd4e40982a59cdd09e0d0a1317
 });
 
 module.exports = router;

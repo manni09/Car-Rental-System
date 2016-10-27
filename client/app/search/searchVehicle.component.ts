@@ -7,12 +7,12 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Component({
-    selector: 'my-dashboard',
-    templateUrl: '/app/dashboard/dashboard.template.html',
+    selector: 'my-search-vehicle',
+    templateUrl: '/app/search/searchVehicle.template.html',
     providers: [VehicleService]
 })
 
-export class DashboardComponent implements OnInit {
+export class SearchVehicleComponent implements OnInit {
     vehicles: Observable<Vehicle[]>;
     private searchCar = new BehaviorSubject('');
     private queryType: string = '';
