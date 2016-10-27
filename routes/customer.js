@@ -21,11 +21,18 @@ router.post('/add', function (req, res, next) {
 router.put('/edit', function (req, res, next) {
     let customer = new Customer(req.body.customer);
     if (customer != []) {
-        customer.update({_id: customer._id}, {}, (function (err) {
-            if (err) throw err;
+
+    customer.findOneAndUpdate({_id:req.params.id}, req.body, function (err, place) {
+         if (err) throw err;
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({ data: customer }));
-        }));
+          });
+
+        // customer.update({_id: customer._id}, {    }, (function (err) {
+        //     if (err) throw err;
+        //     res.setHeader('Content-Type', 'application/json');
+        //     res.send(JSON.stringify({ data: customer }));
+        // }));
     }
 });
 
