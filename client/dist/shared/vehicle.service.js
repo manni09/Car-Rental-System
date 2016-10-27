@@ -15,12 +15,22 @@ var VehicleService = (function () {
     function VehicleService(http) {
         this.http = http;
         this.vehicleUrl = 'api/search/vehicles';
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     VehicleService.prototype.getVehicles = function () {
         return this.http.get(this.vehicleUrl).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
     };
     VehicleService.prototype.getVehiclesByQuery = function (queryStr, queryType) {
         return this.http.get(this.vehicleUrl + '?' + queryType + '=' + queryStr).toPromise().then(function (res) { return res.json().data; }).catch(this.handleError);
+    };
+    VehicleService.prototype.registerVehicle = function (vehicle) {
+        var body = JSON.stringify({ vehicle: vehicle });
+        var options = new http_1.RequestOptions({ headers: this.headers });
+        return this.http
+            .post('api/vehicle/add', body, options)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
     };
     VehicleService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

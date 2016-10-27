@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Vehicle } from './Vehicle';
 import { Injectable } from '@angular/core';
 
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class VehicleService {
 
     private vehicleUrl = 'api/search/vehicles';
+    private headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) { }
 
@@ -15,8 +16,19 @@ export class VehicleService {
         return this.http.get(this.vehicleUrl).toPromise().then(res => res.json().data as Vehicle[]).catch(this.handleError);
     }
 
-    getVehiclesByQuery(queryStr: string, queryType:string): Promise<Vehicle[]> {
+    getVehiclesByQuery(queryStr: string, queryType: string): Promise<Vehicle[]> {
         return this.http.get(this.vehicleUrl + '?' + queryType + '=' + queryStr).toPromise().then(res => res.json().data as Vehicle[]).catch(this.handleError);
+    }
+
+    registerVehicle(vehicle: Vehicle): Promise<Vehicle> {
+        let body = JSON.stringify({ vehicle: vehicle });
+
+        let options = new RequestOptions({ headers: this.headers });
+        return this.http
+            .post('api/vehicle/add', body, options)
+            .toPromise()
+            .then(res => res.json().data)
+            .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

@@ -30,7 +30,7 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([
                     {
                         path: '',
-                        redirectTo: '/vehicle',
+                        redirectTo: '/dashboard',
                         pathMatch: 'full'
                     },
                     {

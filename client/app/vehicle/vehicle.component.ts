@@ -1,4 +1,4 @@
-import { VehicleService } from './vehicle.service';
+import { VehicleService } from './../shared/vehicle.service';
 import { Vehicle } from './../shared/Vehicle';
 import { Component } from '@angular/core';
 
